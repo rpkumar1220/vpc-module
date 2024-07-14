@@ -1,6 +1,7 @@
 resource "aws_subnet" "main" {
   vpc_id     = var.vpc_id
-  cidr_block = var.cidr_block
+  for_each = var.subnet_name
+  cidr_block = each.value["cidr_block"]
 
 
   tags = {
