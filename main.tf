@@ -14,6 +14,4 @@ module "subnets" {
   cidr_block=each.value["cidr_block"]
   subnet_name = each.key
   env = var.env
-
-
 }
