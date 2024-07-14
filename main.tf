@@ -13,5 +13,6 @@ module "subnets" {
   vpc_id=aws_vpc.main.id
   cidr_block=each.value["cidr_block"]
   subnet_name = each.key
+  az=var.az
   env = var.env
 }
