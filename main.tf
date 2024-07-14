@@ -12,7 +12,7 @@ module "subnets"{
   for_each = var.subnets
   vpc_id=aws_vpc.main.id
   cidr_block=each.value["cidr_block"]
-  subnet_name = each.key["subnets"]
+  subnet_name = each.key
   env = var.env
 
 }
