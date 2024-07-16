@@ -37,11 +37,6 @@ resource "aws_route" "igw_route" {
 }
 
 
-####attaching internet gateway to VPC#####
-resource "aws_internet_gateway_attachment" "igw-attach" {
-  internet_gateway_id = aws_internet_gateway.igw.id
-  vpc_id              = aws_vpc.main.id
-}
 
 ###Creating Elastic IP########
 resource "aws_eip" "eip" {
@@ -69,7 +64,7 @@ resource "aws_route" "ngw_route" {
 
 ###Creating VPC peering connection between DEV VPC and default VPC####
 resource "aws_vpc_peering_connection" "peer" {
-    peer_vpc_id   = aws_vpc.main.id
+  peer_vpc_id   = aws_vpc.main.id
   vpc_id        = var.default_vpc_id
   auto_accept   = true
 
